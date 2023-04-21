@@ -1,0 +1,9 @@
+[user]
+	name = Paulo Ruan
+	email = 85769241+pauloruan@users.noreply.github.com
+
+[core]
+  editor = code --wait
+
+[init]
+	defaultBranch = main
