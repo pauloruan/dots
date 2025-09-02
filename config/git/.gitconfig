@@ -1,0 +1,41 @@
+[user]
+	name = Paulo Ruan
+	email = 85769241+pauloruan@users.noreply.github.com
+
+[core]
+  editor = code --wait
+
+[init]
+	defaultBranch = main
+
+[alias]
+    logf = log --date=format:'%d-%m-%Y' --pretty=format:\"%C(yellow)%ad%C(reset) - %C(red)%h%C(reset) - %C(blue)%an%C(reset): %C(green)%s%C(reset)\"
+
+[status]
+	branch = true
+	short = true
+	showStash = true
+	showUntrackedFiles = all
+
+[diff]
+    context = 3
+    renames = copies
+    interHunkContext = 10
+
+[color "diff"]
+    meta       = black bold
+    frag       = magenta
+    context    = white
+    whitespace = yellow reverse
+
+[pager]
+    branch = false
+    diff = diff-so-fancy | $PAGER
+
+# Third-party: diff-so-fancy
+[diff-so-fancy]
+    markEmptyLines = false
+
+[interactive]
+    diffFilter = diff-so-fancy --patch
+    singlekey = true
