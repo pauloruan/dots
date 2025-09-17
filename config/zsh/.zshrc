@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -117,10 +117,14 @@ export NVM_DIR="$HOME/.nvm"
 alias g="git"
 alias gs="git status"
 alias gd="git diff"
-alias gl="git log "
+alias gl="git log"
 alias glf="git logf"
+alias gc="git checkout"
 alias gcb="git checkout -b"
 alias gcm="git checkout main"
+alias ga="git add"
+alias gaa="git add -A"
+alias gci="git commit -m" 
 alias gconfig="code ~/.gitconfig"
 
 # Nvim
