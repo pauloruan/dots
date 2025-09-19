@@ -11,7 +11,7 @@ echo ""
 
 # --- 1. Instalar pacotes base via APT ---
 echo "--- 1/5: Instalando pacotes base via APT ---"
-PACKAGES="curl wget git gh bat tmux httpie warp-terminal zsh zsh-autosuggestions zsh-syntax-highlighting sway swaybg swayidle swaylock wofi waybar polkit-kde-agent-1 xdg-desktop-portal-wlr pavucontrol pulseaudio playerctl"
+PACKAGES="curl wget git gh bat kitty btop tmux httpie warp-terminal zsh zsh-autosuggestions zsh-syntax-highlighting sway swaybg swayidle swaylock wofi waybar polkit-kde-agent-1 xdg-desktop-portal-wlr pavucontrol pulseaudio playerctl"
 
 sudo apt install -y $PACKAGES
 echo "✅ Pacotes base instalados."
