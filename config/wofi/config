@@ -1,2 +1,4 @@
 width=20%
 height=30%
+image_size=16
+parse_actions=false

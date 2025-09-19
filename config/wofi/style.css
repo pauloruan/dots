@@ -2,24 +2,24 @@ window {
     margin: 0px;
     background-color: #191724;
     border-radius: 0px;
-    border: 2px solid #eb6f92;
+    border: 2px solid #9ccfd8;
     color: #e0def4;
-    font-family: 'Noto Mono';
-    font-size: 20px;
+    font-family: 'Noto Mono', FontAwesome;
+    font-size: 14px;
 }
 
 #input {
-    margin: 5px;
+    margin: 4px;
     border-radius: 0px;
     border: none;
-    border-radius: 0px;;
+    border-radius: 0px;
     color: #eb6f92;
     background-color: #26233a;
     
 }
 
 #inner-box {
-    margin: 5px;
+    margin: 4px;
     border: none;
     background-color: #26233a;
     color: #191724;
@@ -27,7 +27,7 @@ window {
 }
 
 #outer-box {
-    margin: 15px;
+    margin: 8px;
     border: none;
     background-color: #191724;
 }
@@ -44,15 +44,16 @@ window {
 } 
 
 #entry:selected {
-    background-color: #eb6f92;
+    background-color: #9ccfd8;
     color: #191724;
-    border-radius: 0px;;
+    border-radius: 0px;
     outline: none;
 }
 
 #entry:selected * {
-    background-color: #eb6f92;
+    background-color: #9ccfd8;
     color: #191724;
-    border-radius: 0px;;
+    border-radius: 0px;
     outline: none;
 }
+
