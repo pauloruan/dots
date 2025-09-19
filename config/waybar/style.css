@@ -1,0 +1,118 @@
+@import "themes/rose-pine.css";
+
+/* ===== Base Styling ===== */
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "Noto Mono", FontAwesome, sans-serif;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @base;
+  color: @text;
+}
+
+/* ===== Common Module Styling ===== */
+#mode,
+#mpd,
+#custom-media,
+#clock,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#disk,
+#tray,
+#temperature {
+  padding: 4px 8px;
+  margin: 4px;
+  border-bottom: 2px solid transparent;
+  background-color: @surface;
+}
+
+/* ===== Workspaces Styling ===== */
+#workspaces button {
+  background-color: @surface;
+  border-bottom: 2px solid transparent;
+  color: @subtle;
+  padding: 2px 4px;
+  margin: 0 4px;
+}
+
+#workspaces button:hover {
+  background-color: @highlight-med;
+}
+
+#workspaces button.focused {
+  background-color: @highlight-high;
+  border-bottom: 2px solid @text;
+  color: @text;
+  font-weight: 900;
+}
+
+#workspaces button.urgent {
+  background-color: @love;
+  color: @base;
+}
+
+/* ===== Module-Specific Colors (Border & Text) ===== */
+#mode {
+  color: #e69875;
+  border-bottom-color: #e69875;
+}
+
+#clock {
+  color: @foam;
+  border-bottom-color: @foam;
+}
+
+#cpu {
+  color: @iris;
+  border-bottom-color: @iris;
+}
+
+#memory {
+  color: @foam;
+  border-bottom-color: @foam;
+}
+
+#network {
+  color: @pine;
+  border-bottom-color: @pine;
+}
+
+#network.disconnected {
+  color: @muted;
+  border-bottom-color: @muted;
+}
+
+#pulseaudio {
+  color: @rose;
+  border-bottom-color: @rose;
+}
+
+#pulseaudio.muted {
+  color: @muted;
+  border-bottom-color: @muted;
+}
+
+#tray {
+  background-color: transparent;
+}
+
+#custom-power {
+  color: @love;
+  margin-right: 4px;
+}
+
+#custom-power:hover {
+  background-color: @love;
+  color: @base;
+}
+
+#custom-spotify {
+  color: #1db954;
+  margin: 0px 4px;
+}

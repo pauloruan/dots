@@ -1,0 +1,121 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "spacing": 1,
+  "modules-left": [
+    "sway/workspaces",
+    "custom/spotify",
+    "sway/mode",
+    "sway/scratchpad"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "tray",
+    "custom/power"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}",
+    "persistent_workspaces": {}
+  },
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "sway/scratchpad": {
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": [
+      "",
+      ""
+    ],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 5
+  },
+  "clock": {
+    "timezone": "America/Fortaleza",
+    "format": "{:󰥔 %H:%M   %d/%m/%Y}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#d3c6aa'><b>{}</b></span>",
+        "days": "<span color='#e67e80'>{}</span>",
+        "weekdays": "<span color='#7fbbb3'><b>{}</b></span>",
+        "today": "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  "cpu": {
+    "format": "󰘚 {usage:02}%",
+    "tooltip": true,
+    "interval": 1,
+    "on-click": "kitty -e btop"
+  },
+  "memory": {
+    "format": "󰍛 {:02}%",
+    "interval": 1,
+    "on-click": "kitty -e btop"
+  },
+  "network": {
+    "format-wifi": "󰖩 {essid}",
+    "format-ethernet": "󰈀 {ifname}",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰖪 Disconnected",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{ifname}: {ipaddr}",
+    "on-click": "kitty -e nmtui"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%  {source_volume}%",
+    "format-bluetooth": "󰂰 {volume}%",
+    "format-bluetooth-muted": "󰂲 {icon}",
+    "format-muted": "󰝟 Mudo   {source_volume}%",
+    "format-source-muted": " Mudo",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰥰",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰄝",
+      "car": "󰄋",
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/power-menu.sh"
+  },
+  "custom/spotify": {
+    "format": " {}",
+    "escape": true,
+    "interval": 1,
+    "max-length": 40,
+    "on-click": "playerctl -p spotify play-pause",
+    "exec-if": "[ \\'$(playerctl -p spotify status)\\' = \\'Playing\\' ]",
+    "exec": "playerctl -p spotify metadata --format '{{artist}} - {{title}}'"
+  }
+}
