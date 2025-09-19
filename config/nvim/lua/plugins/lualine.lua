@@ -4,9 +4,10 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        theme = "catppuccin",
+        icons_enabled = true,
+        theme = "rose-pine",
         component_separators = "",
-        section_separators = { left = "", right = "" },
+        section_separators = "",
         disabled_filetypes = {
           statusline = {
             "neo-tree",
@@ -17,16 +18,12 @@ return {
         },
       },
       sections = {
-        lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+        lualine_a = { "mode"},
         lualine_b = { "filename", "diff" },
-        lualine_c = {
-          "%=", --[[ add your center components here in place of this comment ]]
-        },
+        lualine_c = {},
         lualine_x = {},
         lualine_y = { "branch" },
-        lualine_z = {
-          { "filetype", separator = { right = "" }, left_padding = 2 },
-        },
+        lualine_z = { "filetype" },
       },
       inactive_sections = {
         lualine_a = { "filename" },
