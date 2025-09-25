@@ -1,24 +1,21 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 30,
+  "height": 42,
   "spacing": 1,
   "modules-left": [
-    "sway/workspaces",
-    "custom/spotify",
+    "custom/ws-info",
     "sway/mode",
-    "sway/scratchpad"
+    "sway/scratchpad",
+    "custom/spotify"
   ],
   "modules-center": [
     "clock"
   ],
   "modules-right": [
-    "pulseaudio",
-    "network",
-    "cpu",
-    "memory",
     "tray",
-    "custom/power"
+    "pulseaudio",
+    "network"
   ],
   "sway/workspaces": {
     "disable-scroll": true,
@@ -40,8 +37,8 @@
     "tooltip-format": "{app}: {title}"
   },
   "tray": {
-    "icon-size": 18,
-    "spacing": 5
+    "icon-size": 16,
+    "spacing": 4
   },
   "clock": {
     "timezone": "America/Fortaleza",
@@ -60,22 +57,11 @@
       }
     }
   },
-  "cpu": {
-    "format": "󰘚 {usage:02}%",
-    "tooltip": true,
-    "interval": 1,
-    "on-click": "kitty -e btop"
-  },
-  "memory": {
-    "format": "󰍛 {:02}%",
-    "interval": 1,
-    "on-click": "kitty -e btop"
-  },
   "network": {
-    "format-wifi": "󰖩 {essid}",
-    "format-ethernet": "󰈀 {ifname}",
-    "format-linked": "󰈀 {ifname} (No IP)",
-    "format-disconnected": "󰖪 Disconnected",
+    "format-wifi": "󰖩 Conectado",
+    "format-ethernet": "󰈀 Conectado",
+    "format-linked": "󰈀 Conectando...",
+    "format-disconnected": "󰖪 Desconectado",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "tooltip-format": "{ifname}: {ipaddr}",
     "on-click": "kitty -e nmtui"
@@ -104,10 +90,10 @@
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%"
   },
-  "custom/power": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "~/.config/waybar/scripts/power-menu.sh"
+  "custom/ws-info": {
+    "format": " {}",
+    "interval": 1,
+    "exec": "~/.config/waybar/scripts/ws-info.sh"
   },
   "custom/spotify": {
     "format": " {}",

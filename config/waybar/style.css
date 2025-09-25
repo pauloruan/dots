@@ -1,17 +1,18 @@
-@import "themes/rose-pine.css";
+@import "themes/nord.css";
 
 /* ===== Base Styling ===== */
 * {
   border: none;
-  border-radius: 0;
   font-family: "Noto Mono", FontAwesome, sans-serif;
   font-size: 14px;
   min-height: 0;
+  margin: 0.2em 0.3em 0.2em 0.3em;
+  font-weight: bold;
 }
 
 window#waybar {
-  background: @base;
-  color: @text;
+  background: @bg;
+  color: @light;
 }
 
 /* ===== Common Module Styling ===== */
@@ -25,94 +26,77 @@ window#waybar {
 #pulseaudio,
 #disk,
 #tray,
-#temperature {
+#temperature,
+#custom-ws-info {
   padding: 4px 8px;
   margin: 4px;
-  border-bottom: 2px solid transparent;
-  background-color: @surface;
+  background-color: @nord_bg;
+  border-radius: 4px;
 }
 
 /* ===== Workspaces Styling ===== */
 #workspaces button {
-  background-color: @surface;
-  border-bottom: 2px solid transparent;
-  color: @subtle;
-  padding: 2px 4px;
+  opacity: 0.3;
+  background: none;
+  padding: 0;
   margin: 0 4px;
 }
 
-#workspaces button:hover {
-  background-color: @highlight-med;
-}
-
 #workspaces button.focused {
-  background-color: @highlight-high;
-  border-bottom: 2px solid @text;
-  color: @text;
-  font-weight: 900;
+  background: @workspacesfocused;
+  color: #D8DEE9;
+  opacity: 1;
 }
 
 #workspaces button.urgent {
-  background-color: @love;
-  color: @base;
+  border-color: #c9545d;
+  color: #c9545d;
+  opacity: 1;
 }
 
 /* ===== Module-Specific Colors (Border & Text) ===== */
 #mode {
-  color: #e69875;
-  border-bottom-color: #e69875;
+  color: @light;
+  background: @mode;
 }
 
 #clock {
-  color: @foam;
-  border-bottom-color: @foam;
+  background: @nord_bg_blue;
+  color: #D8DEE9;
 }
 
-#cpu {
-  color: @iris;
-  border-bottom-color: @iris;
+#clock.date {
+  background: @date;
 }
 
-#memory {
-  color: @foam;
-  border-bottom-color: @foam;
+#clock.time {
+  background: @mode;
 }
 
 #network {
-  color: @pine;
-  border-bottom-color: @pine;
+  background: @nord_bg_blue;
 }
 
 #network.disconnected {
-  color: @muted;
-  border-bottom-color: @muted;
+  color: @critical;
 }
 
 #pulseaudio {
-  color: @rose;
-  border-bottom-color: @rose;
+  background: @nord_bg_blue;
+  color: #D8DEE9;
 }
 
 #pulseaudio.muted {
-  color: @muted;
-  border-bottom-color: @muted;
+  background: #BF616A;
+  color: #BF616A;
 }
 
 #tray {
-  background-color: transparent;
-}
-
-#custom-power {
-  color: @love;
-  margin-right: 4px;
-}
-
-#custom-power:hover {
-  background-color: @love;
-  color: @base;
+  background: none;
 }
 
 #custom-spotify {
   color: #1db954;
   margin: 0px 4px;
 }
+
