@@ -1,0 +1,30 @@
+# Configuração do Mako Notifier - Tema Nord
+
+# ===== Aparência Geral =====
+font="Noto Mono 14"
+padding=10
+margin=16
+border-size=2
+border-radius=4
+# Tempo padrão em milissegundos (5000ms = 5 segundos)
+default-timeout=5000
+
+# ===== Cores (Nord) =====
+background-color=#2E3440
+text-color=#D8DEE9
+border-color=#4C566A
+
+# A cor da barra de progresso
+progress-color=over #EBCB8B
+
+# Estilo para notificações que foram agrupadas
+[grouped]
+background-color=#434C5E
+text-color=#D8DEE9
+border-color=#5E81AC
+
+# Estilo para notificações urgentes
+[urgency=high]
+border-color=#BF616A
+# Tempo para notificações urgentes (8000ms = 8 segundos)
+default-timeout=8000
