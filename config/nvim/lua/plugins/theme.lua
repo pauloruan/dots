@@ -1,12 +1,18 @@
 return {
   {
-	"rose-pine/neovim",
-	name = "rose-pine",
-	config = function()
-    require("rose-pine").setup({
-      variant = "main"
-    })
-		vim.cmd("colorscheme rose-pine")
-	end
+    "gbprod/nord.nvim",
+    name = "nord",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nord").setup({
+        transparent = true,
+        terminal_colors = true,
+        styles = {
+          comments = { italic = true },
+        },
+      })
+      vim.cmd("colorscheme nord")
+    end,
   },
 }
