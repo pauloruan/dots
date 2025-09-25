@@ -39,12 +39,12 @@ input "type:keyboard" {
   gaps inner 8
   gaps outer 4
 
-# Configuração de Cores das Janelas
+# Configuração de Cores das Janelas (Tema Nord)
 #<class>               <border>   <background> <text>      <indicator> <child_border>
-client.focused          #1B3022    #285577      #ffffff   #2e9ef4    #519872
-client.unfocused        #333333    #222222      #888888   #292d3e    #222222
-client.focused_inactive #333333    #222222      #888888   #292d3e    #222222
-client.urgent           #2f343a    #900000      #ffffff   #900000    #900000
+client.focused          #5E81AC    #2E3440      #D8DEE9   #88C0D0    #5E81AC
+client.unfocused        #4C566A    #2E3440      #4C566A   #4C566A    #4C566A
+client.focused_inactive #4C566A    #2E3440      #4C566A   #4C566A    #4C566A
+client.urgent           #BF616A    #BF616A      #ECEFF4   #BF616A    #BF616A
 
 ### Key bindings
 
