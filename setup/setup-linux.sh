@@ -1,19 +1,36 @@
 #!/bin/bash
 #
 # setup-linux.sh
-# Script para configurar o ambiente de desenvolvimento em um novo sistema Linux baseado em Debian/Ubuntu.
+# Script para configurar o ambiente de desenvolvimento em sistemas Linux
+# baseados em Debian/Ubuntu ou Arch Linux.
 
-# --- 0. Atualizar a lista de pacotes ---
 echo "🚀 Iniciando a configuração do ambiente..."
-echo "Atualizando a lista de pacotes do sistema (APT)..."
-sudo apt update -y
+
+if command -v apt > /dev/null; then
+    PACKAGE_MANAGER="apt"
+    echo "Sistema baseado em Debian/Ubuntu detectado."
+    echo "Atualizando a lista de pacotes do sistema (APT)..."
+    sudo apt update -y
+elif command -v pacman > /dev/null; then
+    PACKAGE_MANAGER="pacman"
+    echo "Sistema baseado em Arch Linux detectado."
+    echo "Sincronizando os pacotes do sistema (Pacman)..."
+    sudo pacman -Syu --noconfirm
+else
+    echo "❌ Gerenciador de pacotes não suportado (nem apt nem pacman encontrados)."
+    exit 1
+fi
 echo ""
 
-# --- 1. Instalar pacotes base via APT ---
-echo "--- 1/5: Instalando pacotes base via APT ---"
-PACKAGES="curl wget git gh bat kitty btop tmux httpie warp-terminal zsh zsh-autosuggestions zsh-syntax-highlighting sway swaybg swayidle swaylock wofi waybar polkit-kde-agent-1 xdg-desktop-portal-wlr pavucontrol pulseaudio playerctl"
+echo "--- 1/5: Instalando pacotes base ---"
+APT_PACKAGES="curl wget git gh bat kitty btop tmux httpie zsh zsh-autosuggestions zsh-syntax-highlighting sway swaybg swayidle swaylock wofi waybar polkit-kde-agent-1 xdg-desktop-portal-wlr pavucontrol pipewire-pulse playerctl"
+PACMAN_PACKAGES="curl wget git github-cli bat kitty btop tmux httpie zsh zsh-autosuggestions zsh-syntax-highlighting sway wofi waybar polkit-kde-agent xdg-desktop-portal-wlr pavucontrol pipewire-pulse playerctl"
 
-sudo apt install -y $PACKAGES
+if [ "$PACKAGE_MANAGER" = "apt" ]; then
+    sudo apt install -y $APT_PACKAGES
+elif [ "$PACKAGE_MANAGER" = "pacman" ]; then
+    sudo pacman -S --noconfirm $PACMAN_PACKAGES
+fi
 echo "✅ Pacotes base instalados."
 echo ""
 
