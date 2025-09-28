@@ -13,12 +13,16 @@ set $term kitty
 # Your preferred application launcher
 set $menu wofi --show drun --allow-images
 
+# Cursor
+set $cursor Colloid-Dark-Cursors
+
+
 include /etc/sway/config-vars.d/*
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/pr/Imagens/bay.JPG fill
+output * bg /home/pr/dots/assets/wallpaper/5748285.jpg fill
 #
 output HDMI-A-2 resolution 1920x1080 position 1920,0
 
@@ -29,6 +33,8 @@ input "type:keyboard" {
     xkb_variant intl
     xkb_model pc105
 }
+
+seat seat0 xcursor_theme $cursor
 
 ### Font, bordas e gaps.
 # Font:
@@ -160,5 +166,30 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec mako
 exec /usr/bin/gnome-keyring-daemon --start --components=secrets
+
+# Define uma variável com o comando e o estilo do swaylock (Tema Nord)
+set $lock swaylock \
+    --screenshots \
+    --clock \
+    --indicator \
+    --indicator-radius 100 \
+    --indicator-thickness 7 \
+    --effect-scale 0.5 \
+    --effect-blur 7x5 \
+    --effect-vignette 0.5:0.5 \
+    --ring-color '#5e81ac' \
+    --key-hl-color '#BF616A' \
+    --line-color '#2E344000' \
+    --inside-color '#2E344088' \
+    --separator-color '#2E344000' \
+    --text-color '#D8DEE9'
+
+# Atalho para bloquear a tela manualmente
+bindsym $mod+l exec $lock
+
+exec swayidle -w \
+    # timeout 300 '$lock' \
+    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep '$lock'
 
 include /etc/sway/config.d/*
